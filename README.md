@@ -36,12 +36,12 @@ La adaptabilidad y la responsabilidad definen si una interfaz gráfica es capaz 
 ---
 # 1.3 Manejo de eventos
 
-El manejo de eventos es la implementación lógica que permite a una aplicación reaccionar ante las interacciones del usuario o sucesos del sistema de manera controlada. En la ingeniería de software, este proceso se conoce como Event Handling y consiste en asociar un disparador visual con una función específica llamada manejador o "callback". Dentro de tus códigos de Flet, este mecanismo se establece mediante propiedades como on_click o on_submit, las cuales vinculan el control gráfico con la lógica de Python. Cuando ocurre una acción, el framework crea un objeto de evento que contiene información detallada sobre lo sucedido y lo envía a la función asignada para su procesamiento. El manejo correcto de estos sucesos garantiza que la interfaz no sea solo un dibujo estático, sino una herramienta funcional capaz de transformar entradas en resultados. Es la columna vertebral de cualquier sistema interactivo moderno, permitiendo que el programador dicte el comportamiento exacto de la aplicación ante cada estímulo recibido. Sin un manejo estructurado, las señales enviadas por el hardware se perderían sin generar ninguna respuesta útil en la capa de presentación final del software desarrollado bajo estándares profesionales.
+El manejo de eventos es la implementación lógica que permite a una aplicación reaccionar ante las interacciones del usuario o sucesos del sistema de manera controlada. En la ingeniería de software, este proceso se conoce como Event Handling y consiste en asociar un disparador visual con una función específica llamada manejador o "callback". Dentro de tus códigos de Flet, este mecanismo se establece mediante propiedades como on_click o on_submit, las cuales vinculan el control gráfico con la lógica de Python. Cuando ocurre una acción, el framework crea un objeto de evento que contiene información detallada sobre lo sucedido y lo envía a la función asignada para su procesamiento. El manejo correcto de estos sucesos garantiza que la interfaz no sea solo un dibujo estático, sino una herramienta funcional capaz de transformar entradas en resultados. Es la columna vertebral de cualquier sistema interactivo moderno, permitiendo que el programador dicte el comportamiento exacto de la aplicación ante cada estímulo recibido. Sin un manejo estructurado, las señales enviadas por el hardware se perderían sin generar ninguna respuesta útil en la capa de presentación final del software desarrollado bajo estándares profesionales hoy en día.
 
 
 
---python
-# Ejemplo de vinculación en tu Calculadora Estática
+Ejemplo de vinculación en tu Calculadora Estática:
+--
 boton = ft.ElevatedButton(
     text="5",
     on_click=presionar_boton,  # Vinculación del manejador
@@ -49,27 +49,27 @@ boton = ft.ElevatedButton(
 )
 --
 
-En el código de la calculadora estática, el manejo de eventos se implementa de forma masiva a través de una función centralizada que procesa múltiples disparadores numéricos. Cada botón tiene asignada la función presionar_boton, la cual recibe como argumento un objeto de evento que identifica exactamente qué símbolo fue pulsado por el operador. El manejo consiste en extraer el valor del botón y actualizar el estado de la variable de la pantalla, seguido de un comando de actualización visual para reflejar el cambio. Esta técnica de delegación de eventos permite que un solo bloque de código gestione dieciséis botones distintos de manera eficiente y organizada. Al centralizar la lógica, se facilita el mantenimiento del software, ya que cualquier cambio en el procesamiento de números se realiza en un solo lugar. Es un ejemplo claro de cómo el manejo de eventos permite simplificar arquitecturas complejas mediante la reutilización de funciones de respuesta específicas. La precisión en la captura de estos eventos asegura que la calculadora realice operaciones matemáticas sin errores de entrada o latencia, manteniendo siempre la coherencia entre lo presionado y lo mostrado en la interfaz gráfica.
+En el código de la calculadora estática, el manejo de eventos se implementa de forma masiva a través de una función centralizada que procesa múltiples disparadores numéricos. Cada botón tiene asignada la función presionar_boton, la cual recibe como argumento un objeto de evento que identifica exactamente qué símbolo fue pulsado por el operador. El manejo consiste en extraer el valor del botón y actualizar el estado de la variable de la pantalla, seguido de un comando de actualización visual para reflejar el cambio. Esta técnica de delegación de eventos permite que un solo bloque de código gestione dieciséis botones distintos de manera eficiente y organizada. Al centralizar la lógica, se facilita el mantenimiento del software, ya que cualquier cambio en el procesamiento de números se realiza en un solo lugar. Es un ejemplo claro de cómo el manejo de eventos permite simplificar arquitecturas complejas mediante la reutilización de funciones de respuesta específicas. La precisión en la captura de estos eventos asegura que la calculadora realice operaciones matemáticas sin errores de entrada o latencia, manteniendo siempre la coherencia entre lo presionado y lo mostrado en la interfaz gráfica final.
 
 
 
---python
-# Lógica del manejador centralizado en tu Calculadora
+Ejemplo de lógica centralizada en tu Calculadora:
+--
 def presionar_boton(e):
     valor = e.control.data  # Extracción del dato del evento
     if valor == "AC":
         seccion_display.content.value = "0"
     else:
         seccion_display.content.value = str(seccion_display.content.value) + str(valor)
-    page.update() # Refresco de la GUI
+    page.update() # Refresco indispensable de la GUI
 --
 
-Para el sistema de registro de estudiantes, el manejo de eventos adquiere una dimensión de seguridad y validación crítica para la integridad de la base de datos institucional. El manejador del botón "Registrar" no solo captura la pulsación, sino que inicia una secuencia de inspección lógica para verificar que todos los campos cumplan con los requisitos establecidos. En este escenario, el manejo implica el uso de estructuras condicionales que evalúan si la información es válida antes de permitir que el proceso de guardado continúe exitosamente. Si el manejo detecta una anomalía, tiene la capacidad de interrumpir el flujo normal y disparar un segundo evento: la apertura de un cuadro de diálogo de error. Este encadenamiento de sucesos demuestra que el manejo de eventos no es siempre una respuesta simple, sino un flujo de decisiones que protege al sistema. Al integrar expresiones regulares dentro del manejador, se asegura que el correo electrónico tenga un formato técnico correcto antes de ser aceptado. Es una demostración de cómo el manejo de eventos actúa como el guardián de la calidad de la información en las aplicaciones creadas por el programador experto.
+Para el sistema de registro de estudiantes, el manejo de eventos adquiere una dimensión de seguridad y validación crítica para la integridad de la base de datos institucional. El manejador del botón "Registrar" no solo captura la pulsación, sino que inicia una secuencia de inspección lógica para verificar que todos los campos cumplan con los requisitos establecidos. En este escenario, el manejo implica el uso de estructuras condicionales que evalúan si la información es válida antes de permitir que el proceso de guardado continúe exitosamente. Si el manejo detecta una anomalía, tiene la capacidad de interrumpir el flujo normal y disparar un segundo evento: la apertura de un cuadro de diálogo de error. Este encadenamiento de sucesos demuestra que el manejo de eventos no es siempre una respuesta simple, sino un flujo de decisiones que protege al sistema. Al integrar expresiones regulares dentro del manejador, se asegura que el correo electrónico tenga un formato técnico correcto antes de ser aceptado. Es una demostración de cómo el manejo de eventos actúa como el guardián de la calidad de la información en las aplicaciones creadas por el programador experto actualmente.
 
 
 
---python
-# Manejo de validación en tu código de Registro
+Ejemplo de validación en tu código de Registro:
+--
 def registrar_estudiante(e):
     if not txt_nombre.value or not txt_control.value:
         page.dialog = dlg_error # Disparo de evento visual de error
@@ -77,16 +77,19 @@ def registrar_estudiante(e):
     page.update()
 --
 
-En el desarrollo del Flet Chat, el manejo de eventos trasciende la interacción local para adentrarse en la comunicación asíncrona y el intercambio de datos en red global. Aquí, el manejo se divide en dos fases: la publicación de un mensaje propio y la suscripción a eventos generados por otros usuarios conectados al servidor. Cuando un usuario escribe y envía un mensaje, el manejador local procesa la entrada y la distribuye a través de un bus de datos global mediante la función pubsub. Simultáneamente, existe un manejador de escucha constante que se activa cada vez que llega un mensaje externo, encargándose de dibujarlo en la pantalla del receptor de forma automática. Este manejo bidireccional requiere una gestión cuidadosa de los hilos de ejecución para evitar que la interfaz se bloquee mientras espera o recibe nuevos datos. El uso de funciones asíncronas dentro del manejo permite que la experiencia de chat sea fluida, permitiendo enviar y recibir información de manera concurrente. Es la implementación más avanzada de manejo de eventos, donde el software debe responder a estímulos externos de red sin que el usuario note interrupciones en el sistema.
+En el desarrollo del Flet Chat, el manejo de eventos trasciende la interacción local para adentrarse en la comunicación asíncrona y el intercambio de datos en red global. Aquí, el manejo se divide en dos fases: la publicación de un mensaje propio y la suscripción a eventos generados por otros usuarios conectados al servidor. Cuando un usuario escribe y envía un mensaje, el manejador local procesa la entrada y la distribuye a través de un bus de datos global mediante la función pubsub. Simultáneamente, existe un manejador de escucha constante que se activa cada vez que llega un mensaje externo, encargándose de dibujarlo en la pantalla del receptor de forma automática. Este manejo bidireccional requiere una gestión cuidadosa de los hilos de ejecución para evitar que la interfaz se bloquee mientras espera o recibe nuevos datos. El uso de funciones asíncronas dentro del manejo permite que la experiencia de chat sea fluida, permitiendo enviar y recibir información de manera concurrente. Es la implementación más avanzada de manejo de eventos, donde el software debe responder a estímulos externos de red sin que el usuario note interrupciones en el sistema operativo.
 
 
 
---python
-# Manejo de suscripción en tu código de Chat
+Ejemplo de suscripción en tu código de Chat:
+--
 def on_message(message):
     new_message = ChatMessage(message)
     chat_display.controls.append(new_message)
-    page.update() # Actualización ante evento externo
+    page.update() # Actualización ante evento de red externo
 --
 
-Finalmente, el manejo de eventos incluye la responsabilidad de actualizar el estado visual de la página para que el usuario perciba los cambios realizados por la lógica interna. En todos tus ejemplos, el comando page.update() es el paso final indispensable dentro de cualquier manejador de eventos para materializar las modificaciones en el monitor. Sin esta instrucción, aunque la lógica de Python haya procesado el evento correctamente, la interfaz gráfica permanecería inalterada, rompiendo la experiencia de interactividad del usuario. El manejo de eventos es, por lo tanto, un ciclo cerrado que comienza con una acción física, pasa por un procesamiento lógico y termina con una respuesta visual coherente. Dominar esta disciplina permite crear aplicaciones profesionales que responden con inteligencia a las necesidades del operador, minimizando la confusión y maximizando la eficiencia operativa. En conclusión, el manejo de eventos es el proceso que otorga inteligencia y dinamismo a los componentes gráficos de cualquier sistema de software moderno. Cada clic, pulsación o mensaje recibido es una oportunidad para que el manejador demuestre la robustez de la lógica programada bajo estándares internacionales.
+Finalmente, el manejo de eventos incluye la responsabilidad de actualizar el estado visual de la página para que el usuario perciba los cambios realizados por la lógica interna. En todos tus ejemplos, el comando page.update() es el paso final indispensable dentro de cualquier manejador de eventos para materializar las modificaciones en el monitor. Sin esta instrucción, aunque la lógica de Python haya procesado el evento correctamente, la interfaz gráfica permanecería inalterada, rompiendo la experiencia de interactividad del usuario. El manejo de eventos es, por lo tanto, un ciclo cerrado que comienza con una acción física, pasa por un procesamiento lógico y termina con una respuesta visual coherente. Dominar esta disciplina permite crear aplicaciones profesionales que responden con inteligencia a las necesidades del operador, minimizando la confusión y maximizando la eficiencia operativa. En conclusión, el manejo de eventos es el proceso que otorga inteligencia y dinamismo a los componentes gráficos de cualquier sistema de software moderno. Cada clic, pulsación o mensaje recibido es una oportunidad para que el manejador demuestre la robustez de la lógica programada bajo estándares internacionales rigurosos.
+
+
+
