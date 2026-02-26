@@ -223,3 +223,22 @@ def on_message(message):
 El chat colaborativo presenta el reto de manejar componentes de manera dinámica, donde la interfaz debe expandirse y actualizarse automáticamente conforme se reciben nuevos mensajes. El componente ListView es responsable de administrar esta colección dinámica, gestionando el desplazamiento automático y la disposición eficiente de los elementos en pantalla. Cada mensaje recibido se convierte en un nuevo componente gráfico que se agrega a la lista de controles del chat en tiempo real. Este manejo dinámico permite que la aplicación soporte múltiples interacciones consecutivas sin comprometer el rendimiento ni la estabilidad visual. Asimismo, el componente de entrada de texto debe administrarse para recuperar el foco después de cada envío, optimizando la continuidad de la conversación. La capacidad de Flet para actualizar la interfaz mediante el método update() es lo que hace posible una experiencia reactiva y moderna. El manejo de componentes dinámicos representa una técnica avanzada para desarrollar aplicaciones que operan como servicios interactivos y escalables.
 
 Finalmente, el dominio del manejo de componentes gráficos de control permite transformar una idea abstracta en una herramienta digital funcional y eficiente. Es esencial comprender las capacidades y limitaciones de cada control para evitar sobrecargar la interfaz con elementos innecesarios que afecten el rendimiento. En tus proyectos se observa una progresión desde un manejo estructurado en la calculadora hasta una administración dinámica en el chat colaborativo. Cada componente debe cumplir un propósito claro, ya sea informar, capturar datos o facilitar la navegación dentro de la aplicación. La coherencia en el diseño y en la gestión de estos controles genera confianza en el usuario, permitiéndole interactuar con el sistema de manera intuitiva. Como desarrolladores, el objetivo es que los componentes resulten tan naturales que el usuario no perciba la complejidad técnica subyacente. El manejo experto de la librería de controles es, en última instancia, el arte de optimizar la comunicación entre las personas y los sistemas informáticos contemporáneos.
+
+
+# Bibliografía Consultada
+
+La bibliografía seleccionada para el estudio de la graficación por computadora comprende una mezcla estratégica entre textos clásicos de algoritmos fundamentales y manuales modernos de implementación técnica. Estos recursos proporcionan la base teórica necesaria para comprender desde la manipulación de matrices de transformación hasta el desarrollo de sombreadores avanzados en unidades de procesamiento gráfico contemporáneas. Los autores incluidos son referentes internacionales que han definido los estándares de la industria, permitiendo que el estudiante pase de una comprensión intuitiva a una maestría técnica en el manejo de píxeles y geometría. Cada obra ha sido elegida por su rigor matemático y su capacidad para explicar conceptos complejos de una manera estructurada y aplicable al desarrollo de software real. El estudio de estas fuentes garantiza que el programador no solo aprenda a utilizar una librería específica, sino que comprenda los procesos físicos y matemáticos que ocurren detrás de la pantalla en cada renderizado. La consulta constante de estos textos es fundamental para mantenerse actualizado en un campo que evoluciona rápidamente con la aparición de nuevas arquitecturas de hardware cada año. Estas referencias constituyen el pilar académico sobre el cual se construye el conocimiento técnico necesario para enfrentar los retos de la visualización moderna actual.
+
+```text
+Hearn, D., Baker, M. P., & Carithers, W. (2014). Computer graphics with OpenGL 
+    (4th ed.). Pearson.
+
+Hughes, J. F., Van Dam, A., McGuire, M., Sklar, D. F., Foley, J. D., Feiner, S. K., 
+    & Akeley, K. (2013). Computer graphics: Principles and practice (3rd ed.). 
+    Addison-Wesley Professional.
+
+Marschner, S., & Shirley, P. (2015). Fundamentals of computer graphics (4th ed.). 
+    CRC Press.
+
+
+
