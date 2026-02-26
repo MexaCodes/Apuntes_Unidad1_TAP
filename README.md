@@ -34,6 +34,67 @@ La gestión de la asincronía es fundamental en la creación de interfaces inter
 La adaptabilidad y la responsabilidad definen si una interfaz gráfica es capaz de funcionar correctamente en diversos dispositivos y tamaños de pantalla. Al utilizar propiedades de expansión en tus campos de texto, la GUI puede ajustarse dinámicamente para aprovechar el espacio disponible en la ventana. En la calculadora estática, la decisión de mantener dimensiones fijas responde a la necesidad de simular la ergonomía de una herramienta física específica. La creación de interfaces debe equilibrar la flexibilidad técnica con la intención de diseño original del programador. Finalmente, la integración con el lado del cliente asegura que el código Python se comunique eficientemente con el motor gráfico de Flutter. Este proceso culmina en una herramienta profesional que, como tus ejemplos demuestran, puede ser desplegada como una aplicación web o de escritorio con el mismo código. La creación exitosa de una GUI se mide por su capacidad de ser útil y accesible en cualquier entorno. Al dominar estas técnicas, el desarrollador garantiza que su software trascienda el monitor y se convierta en una solución real. La adaptabilidad es el último paso para lograr un producto de software de calidad internacional.
 
 ---
+# 1.2 Tipos de eventos
+
+Los tipos de eventos en el desarrollo de interfaces gráficas representan las diversas categorías de estímulos que un usuario o el sistema pueden generar durante la ejecución de una aplicación. Estos se dividen principalmente en eventos de entrada, como clics de ratón o pulsaciones de teclas, y eventos de estado, que ocurren cuando un control cambia sus propiedades internas o cuando el sistema completa una tarea específica. En el ecosistema de Flet, cada componente está diseñado para escuchar tipos específicos de eventos que son relevantes para su función principal, permitiendo una interacción granular y precisa. Por ejemplo, un botón está optimizado para eventos de pulsación, mientras que un campo de texto reacciona a cambios en su contenido o a la pérdida de enfoque del usuario. Identificar correctamente el tipo de evento es crucial para la arquitectura del software, ya que define cómo se estructurarán las funciones de respuesta y qué datos se extraerán del objeto de evento generado. Un manejo inadecuado del tipo de evento puede provocar respuestas inesperadas o una degradación en la experiencia del usuario al no capturar la intención real de la acción ejecutada. La comprensión profunda de estas categorías permite a los desarrolladores crear flujos de trabajo intuitivos que se perciben naturales y reactivos ante cualquier estímulo del operador.
+
+
+
+```python
+# Ejemplo de Eventos de Clic en tu Calculadora Estática
+# El evento 'on_click' es el tipo más común para disparar acciones inmediatas
+boton_7 = ft.ElevatedButton(
+    text="7", 
+    on_click=presionar_boton, 
+    data="7"
+)
+
+boton_ac = ft.ElevatedButton(
+    text="AC", 
+    on_click=presionar_boton, 
+    data="AC"
+)
+```
+
+En tu calculadora estática, el tipo de evento predominante es el evento de pulsación o clic, gestionado a través de la propiedad `on_click` de los botones elevados. Este tipo de evento es de naturaleza discreta, lo que significa que se activa una sola vez por cada interacción física del usuario, característica ideal para la entrada de dígitos y operadores matemáticos. Al presionar un botón numérico, el sistema captura el evento y ejecuta la lógica necesaria para concatenar el valor en la pantalla, asegurando que cada pulsación sea procesada de manera independiente. Este diseño evita el procesamiento de entradas accidentales y permite que el usuario tenga control total sobre el ritmo de la operación que está realizando en ese momento. Además del clic simple, otros controles pueden soportar eventos como pulsación prolongada o doble clic, aunque en una calculadora estándar la simplicidad del clic único es la norma técnica dominante. La consistencia en el uso de este tipo de evento a lo largo de los dieciséis botones garantiza que la aplicación se comporte de manera predecible y estable para el usuario final. Es un ejemplo claro de cómo un tipo de evento específico puede determinar la dinámica completa de uso de una herramienta digital funcional.
+
+
+
+```python
+# Ejemplo de Eventos de Cambio en tu sistema de Registro
+# El evento 'on_change' permite validar datos mientras el usuario escribe
+txt_email = ft.TextField(
+    label="Correo Electrónico",
+    on_change=validar_formato_correo  # Evento disparado por cada tecla pulsada
+)
+
+# El evento 'on_submit' ocurre al presionar 'Enter' en el campo
+txt_control = ft.TextField(
+    label="Número de Control",
+    on_submit=registrar_estudiante
+)
+```
+
+Para el sistema de registro de estudiantes, se emplean tipos de eventos más dinámicos como los eventos de cambio y los eventos de envío de formulario. El evento `on_change` es particularmente potente en campos de texto, ya que se activa cada vez que el valor del control se modifica, permitiendo realizar validaciones en tiempo real sin esperar a que el usuario concluya la escritura. Esto resulta útil para verificar formatos de correo electrónico o números de control mientras el estudiante escribe, proporcionando retroalimentación inmediata mediante cambios visuales o mensajes de advertencia. Por otro lado, el evento `on_submit` permite que la aplicación reaccione cuando el usuario presiona la tecla Enter, agilizando el proceso de registro al no obligar al operador a utilizar el ratón para confirmar la acción. Estos eventos de entrada de texto son fundamentales para mantener la integridad de la base de datos, ya que funcionan como filtros preventivos antes del procesamiento definitivo de la información capturada. La combinación estratégica de distintos tipos de eventos dentro de un mismo formulario genera una experiencia de usuario sólida, eficiente y técnicamente robusta.
+
+
+
+```python
+# Ejemplo de Eventos de Red en tu Chat Colaborativo
+# El evento de suscripción reacciona a datos externos, no solo a clics locales
+def principal(page: ft.Page):
+    # Suscripción al bus de datos (Evento de sistema/red)
+    page.pubsub.subscribe(on_message)
+
+def enviar_click(e):
+    # Evento de clic que dispara una publicación global
+    page.pubsub.send_all(mensaje.value)
+```
+
+El chat colaborativo introduce una categoría avanzada conocida como eventos de difusión o eventos asíncronos de red, gestionados mediante el sistema `pubsub` de Flet. A diferencia de los eventos locales que se originan por una acción directa del usuario en su dispositivo, estos eventos pueden ser disparados por otros participantes conectados al mismo servidor. Cuando un usuario envía un mensaje, se genera un evento de publicación que viaja a través del bus de datos y activa una función de respuesta en todos los clientes suscritos de forma simultánea. Este tipo de evento es esencial en aplicaciones en tiempo real, donde la sincronización de la interfaz entre múltiples dispositivos constituye un requisito fundamental del sistema. El manejo adecuado de estos eventos exige una arquitectura capaz de procesar información de manera no bloqueante, asegurando que la recepción de datos externos no interfiera con las acciones locales del usuario. Se trata de una manifestación avanzada de interactividad, donde los eventos del sistema y de red se integran para crear un entorno digital dinámico y colaborativo.
+
+Finalmente, la correcta implementación de los tipos de eventos determina la capacidad de respuesta y el nivel de sofisticación técnica de cualquier aplicación profesional desarrollada con librerías gráficas. Es responsabilidad del programador seleccionar el tipo de evento que mejor se adapte a la acción deseada, equilibrando eficiencia de procesamiento y fluidez visual. En tus proyectos se observa una evolución clara, pasando de eventos básicos de clic en una calculadora a flujos complejos de comunicación en red dentro de un chat colaborativo. Cada tipo de evento genera un objeto con información específica, como valores actuales, teclas presionadas o datos transmitidos, elementos fundamentales para la lógica del sistema. Un diseño orientado a eventos favorece la modularidad del código y facilita la depuración, ya que cada acción posee un punto de entrada claramente definido. Dominar la diferencia entre eventos de enfoque, cambio, acción final o difusión es lo que distingue a un desarrollador principiante de un arquitecto de software con visión estructural. El futuro de las interfaces radica en la anticipación y gestión eficiente de estos estímulos para construir experiencias digitales ágiles, coherentes y sin fricciones.
+---
 # 1.3 Manejo de eventos
 
 El manejo de eventos es la implementación lógica que permite a una aplicación reaccionar ante las interacciones del usuario o sucesos del sistema de manera controlada. En la ingeniería de software, este proceso se conoce como Event Handling y consiste en asociar un disparador visual con una función específica llamada manejador o "callback". Dentro de tus códigos de Flet, este mecanismo se establece mediante propiedades como `on_click` o `on_submit`, las cuales vinculan el control gráfico con la lógica de Python. Cuando ocurre una acción, el framework crea un objeto de evento que contiene información detallada sobre lo sucedido y lo envía a la función asignada para su procesamiento. El manejo correcto de estos sucesos garantiza que la interfaz no sea solo un dibujo estático, sino una herramienta funcional capaz de transformar entradas en resultados. Es la columna vertebral de cualquier sistema interactivo moderno, permitiendo que el programador dicte el comportamiento exacto de la aplicación ante cada estímulo recibido. Sin un manejo estructurado, las señales enviadas por el hardware se perderían sin generar ninguna respuesta útil en la capa de presentación final del software desarrollado bajo estándares profesionales hoy en día.
@@ -86,8 +147,5 @@ def on_message(message):
 
 page.pubsub.subscribe(on_message)
 ```
-
-Finalmente, el manejo de eventos incluye la responsabilidad de actualizar el estado visual de la página para que el usuario perciba los cambios realizados por la lógica interna. En todos tus ejemplos, el comando `page.update()` es el paso final indispensable dentro de cualquier manejador de eventos para materializar las modificaciones en el monitor. Sin esta instrucción, aunque la lógica de Python haya procesado el evento correctamente, la interfaz gráfica permanecería inalterada, rompiendo la experiencia de interactividad del usuario. El manejo de eventos es, por lo tanto, un ciclo cerrado que comienza con una acción física, pasa por un procesamiento lógico y termina con una respuesta visual coherente. Dominar esta disciplina permite crear aplicaciones profesionales que responden con inteligencia a las necesidades del operador, minimizando la confusión y maximizando la eficiencia operativa. En conclusión, el manejo de eventos es el proceso que otorga inteligencia y dinamismo a los componentes gráficos de cualquier sistema de software moderno. Cada clic, pulsación o mensaje recibido es una oportunidad para que el manejador demuestre la robustez de la lógica programada bajo estándares internacionales rigurosos.
----
 
 Finalmente, el manejo de eventos incluye la responsabilidad de actualizar el estado visual de la página para que el usuario perciba los cambios realizados por la lógica interna. En todos tus ejemplos, el comando page.update() es el paso final indispensable dentro de cualquier manejador de eventos para materializar las modificaciones en el monitor. Sin esta instrucción, aunque la lógica de Python haya procesado el evento correctamente, la interfaz gráfica permanecería inalterada, rompiendo la experiencia de interactividad del usuario. El manejo de eventos es, por lo tanto, un ciclo cerrado que comienza con una acción física, pasa por un procesamiento lógico y termina con una respuesta visual coherente. Dominar esta disciplina permite crear aplicaciones profesionales que responden con inteligencia a las necesidades del operador, minimizando la confusión y maximizando la eficiencia operativa. En conclusión, el manejo de eventos es el proceso que otorga inteligencia y dinamismo a los componentes gráficos de cualquier sistema de software moderno. Cada clic, pulsación o mensaje recibido es una oportunidad para que el manejador demuestre la robustez de la lógica programada bajo estándares internacionales rigurosos.
