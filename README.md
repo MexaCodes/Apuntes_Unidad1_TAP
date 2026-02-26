@@ -150,3 +150,76 @@ page.pubsub.subscribe(on_message)
 ```
 
 Finalmente, el manejo de eventos incluye la responsabilidad de actualizar el estado visual de la página para que el usuario perciba los cambios realizados por la lógica interna. En todos tus ejemplos, el comando page.update() es el paso final indispensable dentro de cualquier manejador de eventos para materializar las modificaciones en el monitor. Sin esta instrucción, aunque la lógica de Python haya procesado el evento correctamente, la interfaz gráfica permanecería inalterada, rompiendo la experiencia de interactividad del usuario. El manejo de eventos es, por lo tanto, un ciclo cerrado que comienza con una acción física, pasa por un procesamiento lógico y termina con una respuesta visual coherente. Dominar esta disciplina permite crear aplicaciones profesionales que responden con inteligencia a las necesidades del operador, minimizando la confusión y maximizando la eficiencia operativa. En conclusión, el manejo de eventos es el proceso que otorga inteligencia y dinamismo a los componentes gráficos de cualquier sistema de software moderno. Cada clic, pulsación o mensaje recibido es una oportunidad para que el manejador demuestre la robustez de la lógica programada bajo estándares internacionales rigurosos.
+
+---
+
+
+# 1.4 Manejo de componentes gráficos de control
+
+El manejo de componentes gráficos de control se refiere a la gestión técnica de los elementos de interfaz que permiten al usuario interactuar con la lógica del sistema de software. Estos componentes, conocidos comúnmente como widgets o controles, actúan como puentes visuales que traducen las intenciones humanas en instrucciones procesables por el sistema. En el entorno de Flet, el manejo implica no solo la instanciación de objetos como botones, etiquetas o campos de texto, sino también la configuración de su jerarquía dentro del árbol de controles. Cada componente posee un estado interno que define su apariencia, comportamiento y disponibilidad, el cual debe administrarse cuidadosamente para mantener la coherencia visual durante la ejecución. Un manejo profesional de estos elementos requiere comprender cómo se renderizan en distintas plataformas para garantizar que la usabilidad se mantenga constante sin importar el dispositivo utilizado. La manipulación de controles es una tarea fundamental en el desarrollo de aplicaciones modernas, ya que determina la eficiencia con la que el usuario puede completar sus tareas. El éxito de una aplicación depende directamente de qué tan intuitivos, accesibles y responsivos sean sus componentes frente a las demandas del operador actual.
+
+
+
+```python
+# Manejo de componentes en tu Calculadora Estática
+# El uso de Container para controlar la estética del componente Text
+seccion_display = ft.Container(
+    content=ft.Text(value="0", size=50, color=ft.colors.WHITE),
+    bgcolor=ft.colors.BLACK,
+    border_radius=10,
+    alignment=ft.alignment.center_right,
+    padding=20
+)
+
+# El control ElevatedButton como componente de entrada
+boton_igual = ft.ElevatedButton(
+    text="=", 
+    on_click=presionar_boton, 
+    data="=",
+    style=ft.ButtonStyle(shape=ft.CircleBorder(), padding=20)
+)
+```
+
+En tu calculadora estática, el manejo de componentes se observa en la personalización detallada de los controles para cumplir una función específica dentro del diseño de la interfaz. El componente Container se utiliza para encapsular el control de texto del display, permitiendo gestionar propiedades avanzadas como el radio del borde, el color de fondo y el espaciado interno que un simple Text no puede controlar por sí solo. Por su parte, los botones ElevatedButton son manejados no únicamente como disparadores de eventos, sino como elementos visuales que deben conservar una forma circular y un tamaño uniforme. Este nivel de control gráfico garantiza que la calculadora no solo funcione correctamente, sino que también proyecte orden y coherencia visual a través de componentes alineados y estilizados. La manipulación del estilo mediante ButtonStyle demuestra cómo el desarrollador puede modificar la estructura base de un componente para adaptarlo a un diseño previamente definido. Al integrar estos componentes en estructuras superiores, se logra un manejo sistémico donde cada elemento contribuye a la funcionalidad global de la herramienta matemática. El control preciso de estos componentes es lo que permite que la interfaz técnica se perciba como un producto de software profesional y bien terminado.
+
+
+
+```python
+# Manejo de componentes en tu sistema de Registro
+# TextField es el componente de control principal para la captura
+txt_nombre = ft.TextField(
+    label="Nombre del Estudiante", 
+    border_color=ft.colors.BLUE,
+    border_radius=8
+)
+
+# AlertDialog es un componente de control de flujo de información
+dlg_error = ft.AlertDialog(
+    title=ft.Text("Error de validación"),
+    content=ft.Text("Por favor, llena todos los campos correctamente.")
+)
+```
+
+Para el sistema de registro de estudiantes, el manejo de componentes gráficos se enfoca en la captura y validación de datos mediante el control TextField. Este componente es dinámico por naturaleza, ya que debe administrar simultáneamente el estado del foco, la entrada del teclado y la visualización de etiquetas flotantes. El manejo técnico incluye definir propiedades como border_color y border_radius para orientar visualmente al usuario y mejorar la claridad del formulario. Además, el componente AlertDialog ejemplifica cómo se gestionan elementos que permanecen ocultos hasta que una condición lógica específica requiere su visualización inmediata. Estos cuadros de diálogo son fundamentales para el manejo de excepciones visuales, ya que permiten interrumpir el flujo de trabajo de manera controlada para informar inconsistencias en los datos. La integración adecuada de estos controles dentro de un contenedor principal asegura que el formulario se presente como una unidad estructural coherente. El manejo correcto de los campos de entrada constituye la base para garantizar que la información almacenada sea íntegra y técnicamente confiable.
+
+
+
+```python
+# Manejo de componentes en tu Chat Colaborativo
+# ListView maneja una colección dinámica de componentes de mensaje
+chat_display = ft.ListView(
+    expand=True, 
+    spacing=10, 
+    auto_scroll=True
+)
+
+# Creación dinámica de componentes personalizados
+def on_message(message):
+    new_message = ft.Text(f"Usuario: {message}")
+    chat_display.controls.append(new_message)
+    page.update()
+```
+
+El chat colaborativo presenta el reto de manejar componentes de manera dinámica, donde la interfaz debe expandirse y actualizarse automáticamente conforme se reciben nuevos mensajes. El componente ListView es responsable de administrar esta colección dinámica, gestionando el desplazamiento automático y la disposición eficiente de los elementos en pantalla. Cada mensaje recibido se convierte en un nuevo componente gráfico que se agrega a la lista de controles del chat en tiempo real. Este manejo dinámico permite que la aplicación soporte múltiples interacciones consecutivas sin comprometer el rendimiento ni la estabilidad visual. Asimismo, el componente de entrada de texto debe administrarse para recuperar el foco después de cada envío, optimizando la continuidad de la conversación. La capacidad de Flet para actualizar la interfaz mediante el método update() es lo que hace posible una experiencia reactiva y moderna. El manejo de componentes dinámicos representa una técnica avanzada para desarrollar aplicaciones que operan como servicios interactivos y escalables.
+
+Finalmente, el dominio del manejo de componentes gráficos de control permite transformar una idea abstracta en una herramienta digital funcional y eficiente. Es esencial comprender las capacidades y limitaciones de cada control para evitar sobrecargar la interfaz con elementos innecesarios que afecten el rendimiento. En tus proyectos se observa una progresión desde un manejo estructurado en la calculadora hasta una administración dinámica en el chat colaborativo. Cada componente debe cumplir un propósito claro, ya sea informar, capturar datos o facilitar la navegación dentro de la aplicación. La coherencia en el diseño y en la gestión de estos controles genera confianza en el usuario, permitiéndole interactuar con el sistema de manera intuitiva. Como desarrolladores, el objetivo es que los componentes resulten tan naturales que el usuario no perciba la complejidad técnica subyacente. El manejo experto de la librería de controles es, en última instancia, el arte de optimizar la comunicación entre las personas y los sistemas informáticos contemporáneos.
